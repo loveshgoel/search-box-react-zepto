@@ -1,98 +1,65 @@
-/* SearchBox.css */
-
-/* Common Styles */
 .chip {
     display: flex;
     align-items: center;
-    padding: 8px;
-    border-radius: 4px;
+    background-color: #f4f4f4;
+    border-radius: 20px;
     margin: 4px;
-    cursor: pointer;
+    border-bottom: 2px solid rgb(200, 200, 213);
   }
   
-  .chip img {
-    width: 20px;
-    height: 20px;
-    margin-right: 8px;
-    border-radius: 50%;
+  .chip.highlighted {
+    background-color: #82b7df;
   }
   
   .remove-btn {
-    margin-left: 8px;
-    padding: 0;
-    background: none;
-    border: none;
+    margin-left: 2px;
     cursor: pointer;
-    font-weight: bold;
-    color: #ff0000;
+    color: rgb(68, 63, 63);
+    border: none;
+    background: none;
+    font-size: 20px;
   }
-  
-  /* Highlighted Styles */
-  .chip.highlighted {
-    background-color: #c1e4fe;
+  .round-image {
+    width: 30px; 
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 8px; 
   }
-  
-  .chip.highlighted img {
-    border: 2px solid #82b7df;
-  }
-  
-  /* Suggestions Styles */
-  .suggestions-container {
-    position: fixed;
-    width: 15%;
-    max-height: 150px;
-    overflow-y: auto;
+  .dropdown-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    max-width: 200px;
+    width: 100%;
     background: #fff;
     border-radius: 4px;
-    border: 1px solid #ccc;
+    border: px solid #ccc;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1;
+    overflow: hidden; 
   }
   
-  .suggestions-container ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .suggestions-item {
+  .dropdown-item {
     cursor: pointer;
-    padding: 8px;
+    padding: 12px;
     background-color: #f4f4f4;
-    border-radius: 4px;
-    margin: 4px 0;
+    border-radius: 8px;
+    margin: 0; 
     display: flex;
     align-items: center;
   }
   
-  .suggestions-item img {
-    width: 20px;
-    height: 20px;
-    margin-right: 8px;
-    border-radius: 50%;
+  .dropdown-item.highlighted {
+    background-color: #c1e4fe;
   }
-  
-  /* Additional Styles */
-  .round-image {
-    border-radius: 50%;
-  }
-  
-  /* Container Styles */
-  .container {
-    position: relative;
-    border-radius: 4px;
+  .selected-chip {
+    display: flex;
+    align-items: center;
     padding: 8px;
-    display: inline-block;
-    border-bottom: 3px solid #82b7df;
+    background-color: #bec2c5; 
+    border-radius: 20px; 
+    margin: 4px;
   }
-  
-  /* Input Styles */
-  .input {
-    flex: 1;
-    min-width: 100px;
-    max-width: 300px;
-    border: none;
-    outline: none;
-    width: 100%;
-    height: 30px;
+  .dropdown-item .round-image {
+    margin-right: 12px; 
   }
-  

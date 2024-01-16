@@ -119,17 +119,36 @@ const SearchBox = () => {
     <div>
       <h2 className="header">Select all the states</h2>
 
-      <div className="container">
-        <div className="chips-container">
+      <div
+        style={{
+          position: "relative",
+          borderRadius: "4px",
+          padding: "8px",
+          display: "inline-block",
+          borderBottom: "3px solid #82b7df",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "8px",
+            paddingLeft: "8px",
+          }}
+        >
           {selectedItems.map((item, index) => (
             <div
               key={index}
               className={`chip ${
                 highlightedItem === item ? "highlighted" : ""
               }`}
+              style={{
+                borderBottom:
+                  highlightedItem === item ? "none" : "2px solid white",
+              }}
             >
               <img
-                src={imageUrls[item]}
+                src={imageUrls[item]} // Use the corresponding image URL for each item
                 alt={`Image for ${item}`}
                 className="round-image"
               />
@@ -149,22 +168,51 @@ const SearchBox = () => {
             onChange={handleInputChange}
             onClick={handleInputClick}
             placeholder={selectedItems.length > 0 ? "" : "Search..."}
-            className="input"
+            style={{
+              flex: "1" /* Allow the input to take up available space */,
+              minWidth: "100px" /* Set a minimum width for the input */,
+              maxWidth: "300px" /* Set a maximum width for the input */,
+              border: "none",
+              outline: "none",
+              width: "100%" /* Set width to 100% to span the full length */,
+              height: "30px" /* Set a fixed height */,
+            }}
           />
         </div>
         {showSuggestions && remainingSuggestions.length > 0 && (
-          <div className="suggestions-container">
-            <ul>
+          <div
+            style={{
+              position: "fixed", // Use fixed position for accurate placement
+              top: inputPosition ? inputPosition.top : "auto",
+              left: inputPosition ? inputPosition.left : "auto",
+              width: "15%",
+              maxHeight: "150px",
+              overflowY: "auto",
+              background: "#fff",
+              borderRadius: "4px",
+              border: "1px solid #ccc",
+              boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+              zIndex: 1,
+            }}
+          >
+            <ul style={{ listStyle: "none", padding: 0 }}>
               {remainingSuggestions.map((item, index) => (
                 <li
                   key={index}
                   onClick={() => handleItemClick(item)}
-                  className={`suggestions-item ${
-                    highlightedItem === item ? "highlighted" : ""
-                  }`}
+                  style={{
+                    cursor: "pointer",
+                    padding: "8px",
+                    backgroundColor:
+                      highlightedItem === item ? "#c1e4fe" : "#f4f4f4",
+                    borderRadius: "4px",
+                    margin: "4px 0",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
                 >
                   <img
-                    src={imageUrls[item]}
+                    src={imageUrls[item]} // Use the corresponding image URL for each item
                     alt={`Image for ${item}`}
                     className="round-image"
                   />
