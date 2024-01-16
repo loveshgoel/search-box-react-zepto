@@ -1,4 +1,4 @@
-import SearchBox from "./index";
+import SearchBox from "./components/SearchBox";
 
 function App() {
   return (
